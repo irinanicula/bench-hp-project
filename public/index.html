@@ -58,6 +58,10 @@
       <button id="slytherin" class="house-button house-button__slytherin"></button>
     </div>
 
+    <input id="searchInput" type="search" data-filter="services"/>
+
+    <div oninput="search(event.target.value)" class="align-items-center flex-column character-list search-results d-none"></div>
+
     <div class="align-items-center flex-column character-list characters-list__gryffindor d-none">
       <div class="d-flex justify-content-center w-75 flex-wrap characters-list__gryffindor-cards"></div>
     </div>

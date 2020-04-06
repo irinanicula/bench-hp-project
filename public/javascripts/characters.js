@@ -1,6 +1,8 @@
 const key = '$2a$10$sHgVYvqvgYJhAT2oSMEoiOKJsUEER6CCY2xt5iZreePMHB8tjNDLW';
 
 const charactersArray = [];
+let names = [];
+let searchInput = document.getElementById('searchInput');
 
 //TODO: find out more about urls and methods associated with them
 
@@ -91,8 +93,33 @@ const showHouseCards = (characterCards) => {
     }
 }
 
+const createCharacterNamesArray = () => {
+    getCharacters().then(data => {
+        const characters = createCharactersArray(data);
+        if(characters.length > 0) {
+            characters.forEach(character => {
+                names.push(character.name);
+                return names;
+            });
+        } else {
+            console.log("characterz is empty!!! Hellep");
+        }   
+    });
+}
+
+const search = (word) => {
+    let characterSearchResult = document.querySelector('.search-results');
+    names.forEach(name => {
+        if(name.toLowerCase().indexOf(word.toLowerCase()) != -1) {
+            characterSearchResult.innerHTML += `<h5>${name}</h5>`;
+            showHouseCards(characterSearchResult);
+        }
+    });
+}
+
 handleClick();
 
+createCharacterNamesArray();
 
 
 

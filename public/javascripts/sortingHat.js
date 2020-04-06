@@ -4,6 +4,7 @@ const sortingButton = document.querySelector('.sorting-hat__button');
 const getUrl = () => {
     let url = new URL(`https://www.potterapi.com/v1/sortingHat`), params = {key:key}
     Object.keys(params).forEach(key => url.searchParams.append(key, params[key]))
+    console.log(url);
     return url;
 }
 
@@ -22,6 +23,6 @@ const handleSorting = (house) => {
 
 getHouses().then(data => handleSorting(data));
 
-export default handleSorting;
+// export default {getHouses, handleSorting};
 
 
